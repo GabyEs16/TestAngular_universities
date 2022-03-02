@@ -1,0 +1,25 @@
+<div style="text-align:center">
+    <h1>
+        Birnvenidos a Universidades GEH {{ title }}!
+    </h1>
+    <p>Por favor, escribe un pais</p>
+    <p>Páginas: {{info.pages}}</p>
+    <p>Total: {{info.count}}</p>
+    <div class="container-pages">
+        <ul class="paginator">
+            <li *ngFor="let page of pages;let i = index" (click)="searchU($event, i)" [className]="'page ' + (i + 1 === currentPage? 'selected-page': '')">
+                {{i + 1}}
+            </li>
+        </ul>
+    </div>
+    <input type="search" [(ngModel)]="u" placeholder="Search..." (keyup)="searchU($event, 0)">
+    <div class="main-container">
+        <div class="character-container" *ngFor="let character of characters">
+            <p>{{character.name}}</p>
+            <p>Pais: {{character.country}}</p>
+            <p>Estado: {{character.state}}</p>
+            <p>Nombre U: {{character.name}}</p>
+            <p>Sitio: {{character.web_pages}}</p>
+        </div>
+    </div>
+</div>
